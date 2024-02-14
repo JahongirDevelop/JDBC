@@ -11,7 +11,7 @@ public class ConnectIntroduction {
             Class.forName("org.postgresql.Driver"); // 1 - step (Register Driver -> driverni ro'yxatdan o'tkazish) Buni yozmasa ham bo'laveradi
              connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/learn_java_jdbc", "postgres", "1"); // 2 - step (Get connection -> db blan connection o'rnatish)
             Statement statement = connection.createStatement(); // 3 - step (Create Statement -> statement yaratish)
-            ResultSet resultSet = statement.executeQuery("select * from movie"); // 4 - step (Execute Query -> db ga SQL ni jo'natish)
+            ResultSet resultSet = statement.executeQuery("select * from movie");     // 4 - step (Execute Query -> db ga SQL ni jo'natish)
 
             while (resultSet.next()) {
 //            System.out.println(resultSet.getInt("id") + " -> " + resultSet.getString("name"));

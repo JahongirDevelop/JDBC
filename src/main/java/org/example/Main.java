@@ -1,7 +1,6 @@
 package org.example;
 
 import java.sql.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,6 @@ public class Main {
                         .rating(resultSet.getDouble("rating"))
                         .build();
                 movieList.add(movie);
-
             }
         } catch (SQLException e){
             throw new RuntimeException();
