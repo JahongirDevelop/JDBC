@@ -11,8 +11,10 @@ public class Main {
 //            System.out.println(movie);
 //        }
         String sql = "update students set name = 'Alish' where id = 1; ";
+        String sql2 = "select * from students; ";
 
-        update(sql);
+//        update(sql);
+        executeTest(sql2);
 
     }
 
@@ -54,6 +56,26 @@ public class Main {
             Statement statement = connection.createStatement();
             int effectedRow = statement.executeUpdate(sql);
             System.out.println(effectedRow);
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void executeTest(String sql){
+        Connection connection = null;
+        try {
+            connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            boolean hasResult = statement.execute(sql);
+            if (hasResult){
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()){
+                    System.out.println("name :" + resultSet.getString("name"));
+                }
+            } else {
+                System.out.println("there isn't resultSet");
+            }
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
