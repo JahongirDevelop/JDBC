@@ -6,12 +6,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Movie> allMovie = getAllMovie();
-        for (Movie movie : allMovie) {
-            System.out.println(movie);
-        }
+//        List<Movie> allMovie = getAllMovie();
+//        for (Movie movie : allMovie) {
+//            System.out.println(movie);
+//        }
+        String sql = "update students set name = 'Alish' where id = 1; ";
+
+        update(sql);
+
     }
-    public static List<Movie> getAllMovie(){
+
+    public static List<Movie> getAllMovie() { //  executeQuery method
         List<Movie> movieList = new ArrayList<>();
         Connection connection = null;
         try {
@@ -30,7 +35,7 @@ public class Main {
                         .build();
                 movieList.add(movie);
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException();
         } finally {
             try {
@@ -40,5 +45,18 @@ public class Main {
             }
         }
         return movieList;
+    }
+
+    public static void update(String sql) { // executeUpdate method
+        Connection connection = null;
+        try {
+            connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            int effectedRow = statement.executeUpdate(sql);
+            System.out.println(effectedRow);
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
