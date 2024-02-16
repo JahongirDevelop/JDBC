@@ -19,8 +19,7 @@ public class StatementExamples {
                     " title varchar, " +
                     " content text, " +
                     " author_name varchar, " +
-                    " publish_date date" +
-            ")";
+                    " publish_date date" +  ")";
             statement.executeUpdate(sql);
             connection.close();
         } catch (SQLException e) {
