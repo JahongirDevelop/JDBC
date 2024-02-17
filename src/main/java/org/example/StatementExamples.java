@@ -8,7 +8,6 @@ public class StatementExamples {
     public static void main(String[] args) {
         createTable();
     }
-
     public static void createTable(){
         try {
             Connection connection = DBUtil.getConnection();
