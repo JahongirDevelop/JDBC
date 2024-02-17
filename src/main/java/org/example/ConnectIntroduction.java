@@ -24,7 +24,6 @@ public class ConnectIntroduction {
                 System.out.println(id + " " + title + " " + duration + " " + createdDate + " " + publishDate + " " + rating);
             }
            // connection.close(); // 5 - step (Colose Connection -> db bilan yaratilgan connectionni uzish)
-
         } catch (ClassNotFoundException | SQLException e){
             throw new RuntimeException();
         } finally {
