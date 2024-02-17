@@ -60,6 +60,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
     public static void executeTest(String sql){
         Connection connection = null;
         try {
@@ -72,8 +73,7 @@ public class Main {
                     System.out.println("name :" + resultSet.getString("name"));
                 }
             } else {
-                System.out.println("there isn't resultSet");
-            }
+                System.out.println("there isn't resultSet"); }
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
