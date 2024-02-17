@@ -17,7 +17,6 @@ public class Main {
         executeTest(sql2);
 
     }
-
     public static List<Movie> getAllMovie() { //  executeQuery method
         List<Movie> movieList = new ArrayList<>();
         Connection connection = null;
