@@ -24,7 +24,6 @@ public class Main {
             connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from movie");
-
             while (resultSet.next()) {
                 Movie movie = Movie.builder()
                         .id(resultSet.getInt("id"))
