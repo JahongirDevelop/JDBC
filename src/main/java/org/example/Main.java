@@ -60,7 +60,6 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
-
     public static void executeTest(String sql){
         Connection connection = null;
         try {
