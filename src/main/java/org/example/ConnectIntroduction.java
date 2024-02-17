@@ -34,7 +34,6 @@ public class ConnectIntroduction {
                 throw new RuntimeException(e);
             }
         }
-
     }
 
 }
