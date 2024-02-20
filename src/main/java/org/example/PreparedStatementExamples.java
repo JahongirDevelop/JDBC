@@ -8,7 +8,8 @@ public class PreparedStatementExamples {
 //        createTable();
 //        insert("pdsdsads", "kdks", 21, "fdsfs", LocalDate.of(2021,02,21));
 //        selectBySurname("da");
-        update("1234", 3);
+//        update("1234", 3);
+        delete(2);
     }
 
     public static void createTable() {
@@ -82,6 +83,21 @@ public class PreparedStatementExamples {
             preparedStatement.executeUpdate();
             System.out.println("Updated");
             connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void delete(Integer empId){
+        try {
+            Connection connection = DBUtil.getConnection();
+            String sql = "delete from employee where id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, empId);
+            preparedStatement.executeUpdate();
+            System.out.println("deleted");
+            connection.close();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
