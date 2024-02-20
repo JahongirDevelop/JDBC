@@ -7,7 +7,8 @@ public class PreparedStatementExamples {
     public static void main(String[] args) {
 //        createTable();
 //        insert("pdsdsads", "kdks", 21, "fdsfs", LocalDate.of(2021,02,21));
-        selectBySurname("da");
+//        selectBySurname("da");
+        update("1234", 3);
     }
 
     public static void createTable() {
@@ -66,6 +67,21 @@ public class PreparedStatementExamples {
         }
         connection.close();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void update(String phone, Integer empId){
+        try {
+            Connection connection = DBUtil.getConnection();
+            String sql = "update employee set phone = ? where id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, phone);
+            preparedStatement.setInt(2, empId);
+            preparedStatement.executeUpdate();
+            System.out.println("Updated");
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
