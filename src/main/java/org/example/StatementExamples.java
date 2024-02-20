@@ -11,7 +11,8 @@ public class StatementExamples {
 //        createTable();
 //        insertQuery("Learn","JDBC","Alish", LocalDate.of(2021,03,23));
 //        selectById(2);
-        update(2, "Oxshadi", "update oxshadi Karl");
+//        update(2, "Oxshadi", "update oxshadi Karl");
+        deleteById(2);
     }
 
     public static void createTable() {
@@ -74,4 +75,20 @@ public class StatementExamples {
             throw new RuntimeException(e);
         }
     }
-}
+
+    public static void deleteById(Integer ide) {
+        try {
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            String sql = "delete from article where id = " + ide + "; ";
+            int effectedRowsCount = statement.executeUpdate(sql);
+            System.out.println(" deleted rows: " + effectedRowsCount);
+            connection.close();
+
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        }
+    }
+
+
