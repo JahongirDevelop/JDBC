@@ -10,9 +10,11 @@ public class StatementExamples {
     public static void main(String[] args) {
 //        createTable();
 //        insertQuery("Learn","JDBC","Alish", LocalDate.of(2021,03,23));
-        selectById(2);
+//        selectById(2);
+        update(2, "Oxshadi", "update oxshadi Karl");
     }
-    public static void createTable(){
+
+    public static void createTable() {
         try {
             Connection connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
@@ -22,7 +24,7 @@ public class StatementExamples {
                     " title varchar, " +
                     " content text, " +
                     " author_name varchar, " +
-                    " publish_date date" +  ")";
+                    " publish_date date" + ")";
             statement.executeUpdate(sql);
             connection.close();
         } catch (SQLException e) {
@@ -30,12 +32,12 @@ public class StatementExamples {
         }
     }
 
-    public static void insertQuery(String title, String content, String author_name, LocalDate publishDate){
+    public static void insertQuery(String title, String content, String author_name, LocalDate publishDate) {
         try {
             Connection connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
             String sql = "insert into article(title, content, author_name, publish_date) values ('%s', '%s', '%s', '%s')";
-            sql =  String.format(sql, title, content, author_name, publishDate.toString());
+            sql = String.format(sql, title, content, author_name, publishDate.toString());
             statement.executeUpdate(sql);
             connection.close();
         } catch (SQLException e) {
@@ -43,18 +45,31 @@ public class StatementExamples {
         }
     }
 
-    public static void selectById(Integer ide){
+    public static void selectById(Integer ide) {
         try {
-        Connection connection = DBUtil.getConnection();
+            Connection connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
             String sql = "select * from article where id = " + ide + "; ";
             ResultSet resultSet = statement.executeQuery(sql);
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 int idd = resultSet.getInt("id");
                 System.out.println("id: " + idd);
 
             }
             connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void update(Integer iD, String title, String content) {
+        try {
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            String sql = "update article set title = '%s', content = '%s' where id = %d";
+            sql = String.format(sql, title, content, iD);
+            int effectedRowsCount = statement.executeUpdate(sql);
+            System.out.println(effectedRowsCount);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
