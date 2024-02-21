@@ -3,19 +3,18 @@ package org.example;
 import java.io.*;
 import java.sql.*;
 
-public class StoringAndRetrieveImageAndVideo {
+public class StoringAndRetrieveAnyType {
     public static void main(String[] args) {
 //        createTable();
 
-
-//        insertImage();
-        retrieveImage();
+        insertAnyType();
+        retrieveAnyType();
 
     }
 
-    private static void insertImage() {
+    private static void insertAnyType() {
         try {
-        File file = new File("D:/Users/HP/java G23/Images/StoringMedia/video_2.mp4");
+        File file = new File("D:/Users/HP/java G23/StoringAndRetrieveAnyTypes/StoringFile/video_2.mp4"); // path oxiriga o'sha saqlamoqchi bo'lgan typeni yozamiz(name.type)
         FileInputStream fileInputStream = new FileInputStream(file);
 
         Connection connection = DBUtil.getConnection();
@@ -34,7 +33,7 @@ public class StoringAndRetrieveImageAndVideo {
     }
 
 
-    public static void retrieveImage(){
+    public static void retrieveAnyType(){
         try {
         Connection connection = DBUtil.getConnection();
         Statement statement = connection.createStatement();
@@ -47,7 +46,7 @@ public class StoringAndRetrieveImageAndVideo {
             byte[] image = new byte[inputStream.available()];
             inputStream.read(image);
 
-            File file = new File("D:/Users/HP/java G23/Images/RetrieveMedia/" + fileName + "." + fileType);
+            File file = new File("D:/Users/HP/java G23/StoringAndRetrieveAnyTypes/RetrieveFile/" + fileName + "." + fileType);
             OutputStream outputStream = new FileOutputStream(file);
             outputStream.write(image);
             outputStream.close();
@@ -66,7 +65,7 @@ public class StoringAndRetrieveImageAndVideo {
             Connection connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
 
-            String sql = "create table if not exists image_attach(" +
+            String sql = "create table if not exists media_attach(" +
                     " id serial primary key, " +
                     " f_name varchar, " +
                     " f_type text, " +
