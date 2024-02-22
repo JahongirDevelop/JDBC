@@ -59,7 +59,6 @@ public class StoringAndRetrieveAnyType {
         }
     }
 
-
     public static void createTable() {
         try {
             Connection connection = DBUtil.getConnection();
