@@ -1,10 +1,8 @@
 package org.example;
 
 import lombok.SneakyThrows;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 public class DBUtil {
     @SneakyThrows
     public static Connection getConnection() {
