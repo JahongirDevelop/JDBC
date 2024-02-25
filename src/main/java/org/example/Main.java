@@ -8,7 +8,6 @@ public class Main {
 //        for (Movie movie : allMovie) {
 //            System.out.println(movie);
 //        }
-
         String sql = "update students set name = 'Alish' where id = 1; ";
         String sql2 = "select * from students; ";
 
