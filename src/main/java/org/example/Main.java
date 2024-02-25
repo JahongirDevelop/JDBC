@@ -13,7 +13,6 @@ public class Main {
 
 //        update(sql);
         executeTest(sql2);
-
     }
     public static List<Movie> getAllMovie() { //  executeQuery method
         List<Movie> movieList = new ArrayList<>();
