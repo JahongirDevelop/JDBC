@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 public class ConnectIntroduction {
     public static void main(String[] args)  {
-
         Connection connection = null;
         try {
             Class.forName("org.postgresql.Driver"); // 1 - step (Register Driver -> driverni ro'yxatdan o'tkazish) Buni yozmasa ham bo'laveradi
