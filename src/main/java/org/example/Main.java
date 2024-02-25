@@ -10,7 +10,6 @@ public class Main {
 //        }
         String sql = "update students set name = 'Alish' where id = 1; ";
         String sql2 = "select * from students; ";
-
 //        update(sql);
         executeTest(sql2);
     }
