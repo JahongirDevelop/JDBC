@@ -58,6 +58,7 @@ public class StoringAndRetrieveAnyType {
             throw new RuntimeException(e);
         }
     }
+
     public static void createTable() {
         try {
             Connection connection = DBUtil.getConnection();
