@@ -9,7 +9,6 @@ public class StoringAndRetrieveAnyType {
 
         insertAnyType();
         retrieveAnyType();
-
     }
 
     private static void insertAnyType() {
