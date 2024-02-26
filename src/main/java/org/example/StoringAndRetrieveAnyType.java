@@ -6,7 +6,6 @@ import java.sql.*;
 public class StoringAndRetrieveAnyType {
     public static void main(String[] args) {
 //        createTable();
-
         insertAnyType();
         retrieveAnyType();
     }
