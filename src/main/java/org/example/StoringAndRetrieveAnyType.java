@@ -9,7 +9,6 @@ public class StoringAndRetrieveAnyType {
         insertAnyType();
         retrieveAnyType();
     }
-
     private static void insertAnyType() {
         try {
         File file = new File("D:/Users/HP/java G23/StoringAndRetrieveAnyTypes/StoringFile/video_2.mp4"); // path oxiriga o'sha saqlamoqchi bo'lgan typeni yozamiz(name.type)
