@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Main {
     public static void main(String[] args) {
-//        List<Movie> allMovie = getAllMovie();
-//        for (Movie movie : allMovie) {
-//            System.out.println(movie);
-//        }
+
         String sql = "update students set name = 'Alish' where id = 1; ";
         String sql2 = "select * from students; ";
 //        update(sql);
