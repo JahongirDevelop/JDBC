@@ -13,6 +13,7 @@ public class ConnectIntroduction {
             ResultSet resultSet = statement.executeQuery("select * from movie");     // 4 - step (Execute Query -> db ga SQL ni jo'natish)
 
             while (resultSet.next()) {
+
 //            System.out.println(resultSet.getInt("id") + " -> " + resultSet.getString("name"));
                 Integer id = resultSet.getInt("id");
                 String title = resultSet.getString("title");
@@ -23,6 +24,7 @@ public class ConnectIntroduction {
                 System.out.println(id + " " + title + " " + duration + " " + createdDate + " " + publishDate + " " + rating);
             }
            // connection.close(); // 5 - step (Colose Connection -> db bilan yaratilgan connectionni uzish)
+
         } catch (ClassNotFoundException | SQLException e){
             throw new RuntimeException();
         } finally {
