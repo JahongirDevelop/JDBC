@@ -11,7 +11,7 @@ public class StoringAndRetrieveAnyType {
     }
     private static void insertAnyType() {
         try {
-        File file = new File("D:/Users/HP/java G23/StoringAndRetrieveAnyTypes/StoringFile/video_2.mp4"); // path oxiriga o'sha saqlamoqchi bo'lgan typeni yozamiz(name.type)
+        File file = new File("YOUR_LOCAL_STORAGE/FILE-NAME.mp4"); // path oxiriga o'sha saqlamoqchi bo'lgan typeni yozamiz(name.type)
         FileInputStream fileInputStream = new FileInputStream(file);
 
         Connection connection = DBUtil.getConnection();
@@ -43,7 +43,7 @@ public class StoringAndRetrieveAnyType {
             byte[] image = new byte[inputStream.available()];
             inputStream.read(image);
 
-            File file = new File("D:/Users/HP/java G23/StoringAndRetrieveAnyTypes/RetrieveFile/" + fileName + "." + fileType);
+            File file = new File("YOUR_LOCAL_STORAGE/" + fileName + "." + fileType);
             OutputStream outputStream = new FileOutputStream(file);
             outputStream.write(image);
             outputStream.close();
