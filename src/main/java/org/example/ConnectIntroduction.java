@@ -3,12 +3,16 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
 public class ConnectIntroduction {
     public static void main(String[] args)  {
         Connection connection = null;
+        String dbUrl = System.getenv("DB_URL");
+        String dbUser = System.getenv("DB_USER");
+        String dbPassword = System.getenv("DB_PASSWORD");
         try {
             Class.forName("org.postgresql.Driver"); // 1 - step (Register Driver -> driverni ro'yxatdan o'tkazish) Buni yozmasa ham bo'laveradi
-             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/learn_java_jdbc", "postgres", "1"); // 2 - step (Get connection -> db blan connection o'rnatish)
+             connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword); // 2 - step (Get connection -> db blan connection o'rnatish)
             Statement statement = connection.createStatement(); // 3 - step (Create Statement -> statement yaratish)
             ResultSet resultSet = statement.executeQuery("select * from movie");     // 4 - step (Execute Query -> db ga SQL ni jo'natish)
 
